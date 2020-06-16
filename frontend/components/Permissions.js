@@ -9,6 +9,7 @@ import SickButton from './styles/SickButton';
 const possiblePermissions = [
   'ADMIN',
   'USER',
+  'MOD',
   'ITEMCREATE',
   'ITEMUPDATE',
   'ITEMDELETE',
@@ -50,7 +51,7 @@ const Permissions = props => (
             </thead>
             <tbody>
               {
-                data.users.map(user => <UserPermissions user={user} />)
+                data.users.map(user => <UserPermissions key={user.id} user={user} />)
               }
             </tbody>
           </Table>
@@ -76,6 +77,24 @@ class UserPermissions extends React.Component{
   state = { 
     permissions: this.props.user.permissions,
   }
+
+  handlePermissionChange = e => {
+    const checkbox = e.target;
+    // take a copy of current permissions
+    let updatedPermissions = [...this.state.permissions];
+    // remove or add permssions
+    if(checkbox.checkbox){
+      // add it in
+      updatedPermissions.push(checkbox.value);
+    } else {
+      updatedPermissions = updatedPermissions.filter(permission => (
+        permission !== updatedPermissions
+      ));
+    }
+    this.setState({permissions:updatedPermissions});
+    console.log(updatedPermissions)
+  }
+
   render(){
     const user = this.props.user;
     return (
@@ -85,8 +104,11 @@ class UserPermissions extends React.Component{
         {possiblePermissions.map(permission => (
           <td key={permission}>
             <label htmlFor={`${user.id}-permission-${permission}`}>
-              <input type="checkbox"
-
+              <input 
+                type="checkbox" 
+                checked={this.state.permissions.includes(permission)}
+                value={permission}
+                onChange={this.handlePermissionChange}
               />
             </label>
           </td>
