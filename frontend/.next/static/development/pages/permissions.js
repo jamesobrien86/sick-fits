@@ -287,7 +287,7 @@ function (_React$Component) {
       var updatedPermissions = _toConsumableArray(_this.state.permissions); // remove or add permssions
 
 
-      if (checkbox.checkbox) {
+      if (checkbox.checked) {
         // add it in
         updatedPermissions.push(checkbox.value);
       } else {
