@@ -2,13 +2,10 @@
 
 # Advanced React & GraphQL
 
-These are the starter files and stepped solutions for the [Advanced React & GraphQL](https://AdvancedReact.com) course by [Wes Bos](https://WesBos.com/).
+This project is built with the files and stepped solutions for the [Advanced React & GraphQL](https://AdvancedReact.com) course by [Wes Bos](https://WesBos.com/).
 
-## Getting Help
+## Implementing and Building
 
-The best place to get help is in the #advanced-react slack room - there is a link in your course dashboard.
+The project has been coded and configured by me and this project has given me the knowledge to use GraphQL, Apollo, Next and Prisma.
 
-## FAQ
 
-**Q:** Which Extensions for VS Code is Wes using?  
-**A:** All my extensions are listed on [my dotfiles repo](https://github.com/wesbos/dotfiles), but specifically this course uses [ESLint](https://github.com/Microsoft/vscode-eslint) and [Prettier](https://github.com/prettier/prettier-vscode).
